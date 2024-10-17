@@ -13,7 +13,6 @@
 * [简体中文版简介](README_zh-hans.md)
 
 ---
-
 <br />
 
 Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion (and similar) series laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
