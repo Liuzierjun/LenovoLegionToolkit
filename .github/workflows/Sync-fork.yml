@@ -1,0 +1,29 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 设定自动运行的时间
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Sync all branches
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote add upstream https://github.com/BartoszCichecki/LenovoLegionToolkit
+          git fetch upstream
+          for branch in $(git branch -r | grep 'upstream/' | sed 's/upstream\///'); do
+            if [ "$branch" != "HEAD" ]; then
+              git checkout $branch || git checkout -b $branch
+              git merge upstream/$branch
+              git push origin $branch
+            fi
+          done
