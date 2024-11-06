@@ -10,7 +10,7 @@
 ---
 
 #### Other language versions of this README file:
-* [简体中文版简介](README_zh-hans.md)
+* [简体中文版简介](README.md)
 
 ---
 <br />
